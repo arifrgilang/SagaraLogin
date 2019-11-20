@@ -10,4 +10,46 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="masuk">Masuk!</string>
+    <string name="sudah_punya_akun">Sudah punya akun?</string>
+    <string name="selanjutnya">Selanjutnya</string>
+    <string name="halaman_1_dari_2">Halaman 1 dari 2</string>
+    <string name="register_nama_lengkap">Nama Lengkap</string>
+    <string name="register_alamat">Alamat</string>
+    <string name="register_kode_pos">Kode Pos</string>
+    <string name="register_tanggal_lahir">Tanggal Lahir</string>
+    <string name="register_kota">Kota</string>
+    <string name="register_provinsi">Provinsi</string>
+    <string name="daftar">Daftar</string>
+    <string name="pilih_kota">Pilih Kota</string>
+    <string name="jakarta">Jakarta</string>
+    <string name="bogor">Bogor</string>
+    <string name="depok">Depok</string>
+    <string name="tangerang">Tangerang</string>
+    <string name="bekasi">Bekasi</string>
+    <string name="pilih">Pilih</string>
+
+    <string-array name="jabar_list">
+        <item>(pilih kota)</item>
+        <item>Jakarta</item>
+        <item>Bogor</item>
+        <item>Depok</item>
+        <item>Tangerang</item>
+        <item>Bekasi</item>
+    </string-array>
+
+    <string-array name="jateng_list">
+        <item>(pilih kota)</item>
+        <item>Pekalongan</item>
+        <item>Batang</item>
+        <item>Pemalang</item>
+        <item>Yogyakarta</item>
+        <item>Purwokerto</item>
+    </string-array>
+
+    <string-array name="provinsi_list">
+        <item>(pilih provinsi)</item>
+        <item>Jawa Barat</item>
+        <item>Jawa Tengah</item>
+    </string-array>
 </resources>

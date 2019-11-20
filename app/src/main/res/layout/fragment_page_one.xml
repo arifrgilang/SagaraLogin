@@ -1,14 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PageOneFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_vertical"
+    tools:context=".fragments.PageOneFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment One" />
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Isi data E-mail dan Password baru anda"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/halaman_1_dari_2"
+            android:layout_marginBottom="16dp"/>
+
+        <com.libizo.CustomEditText
+            android:id="@+id/email_register"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
+            android:hint="@string/form_email"
+            android:backgroundTint="@color/colorPrimaryDark"
+            app:libIZO_setBorderView="true"
+            app:libIZO_setStrokeWidth="2dp"
+            app:libIZO_setBorderColor="@color/colorAccent"
+            app:libIZO_setCornerRadius="4dp"/>
+
+        <com.libizo.CustomEditText
+            android:id="@+id/password_register"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
+            android:hint="@string/form_password"
+            android:backgroundTint="@color/colorPrimaryDark"
+            app:libIZO_setBorderView="true"
+            app:libIZO_setStrokeWidth="2dp"
+            app:libIZO_setBorderColor="@color/colorAccent"
+            app:libIZO_setCornerRadius="4dp"/>
+
+        <Button
+            android:id="@+id/next_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="@string/selanjutnya"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"/>
+
+        <LinearLayout
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sudah_punya_akun"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:layout_marginEnd="1dp"/>
+            <TextView
+                android:id="@+id/back_Login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/masuk"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
