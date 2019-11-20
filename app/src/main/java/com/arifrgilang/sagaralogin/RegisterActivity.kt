@@ -16,6 +16,6 @@ class RegisterActivity : AppCompatActivity() {
                 supportFragmentManager
             )
         register_view_pager.adapter = registerPagerAdapter
-
+        register_view_pager.currentItem = 1
     }
 }
