@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Sagara Login</string>
+    <string name="welcome_message">Selamat Datang di Sagara</string>
+    <string name="button_login">Login</string>
+    <string name="button_registrasi">Daftar</string>
+    <string name="form_email">E-mail</string>
+    <string name="form_password">Password</string>
+    <string name="belum_memiliki_akun">Tidak punya akun? </string>
+    <string name="sign_up">Daftar di sini!</string>
+</resources>
