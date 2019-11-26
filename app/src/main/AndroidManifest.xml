@@ -11,10 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".RegisterActivity"
-            android:theme="@style/AppTheme.Splash"
-            android:windowSoftInputMode="adjustResize">
-        </activity>
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.Splash"
@@ -29,7 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity">
+
+        </activity>
     </application>
 
 </manifest>
