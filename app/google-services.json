@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "978521058526",
+    "firebase_url": "https://sagara-kripto.firebaseio.com",
+    "project_id": "sagara-kripto",
+    "storage_bucket": "sagara-kripto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978521058526:android:bb09ea82a0f9f5d23da64f",
+        "android_client_info": {
+          "package_name": "com.arifrgilang.sagaralogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "978521058526-09ppfnmbosnm6rvgpd157b82m0t0c6ts.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arifrgilang.sagaralogin",
+            "certificate_hash": "db5ffc028fb3a4c8fe7b826d123f6f8dc80e4eb4"
+          }
+        },
+        {
+          "client_id": "978521058526-e1b7kh5gmv9667tsgh10lqa89h7u1omo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOizNCf44MZTL0upjaWiRR2S5DHfQPcsA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "978521058526-e1b7kh5gmv9667tsgh10lqa89h7u1omo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
