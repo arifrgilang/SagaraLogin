@@ -1,40 +1,31 @@
 package com.arifrgilang.sagaralogin.util
-import java.nio.charset.Charset
+
+import android.annotation.SuppressLint
 
 class Hellman {
-    private val UTF8: Charset = Charset.forName("UTF-8")
-    // superincreasing big integer array
-    var privateKey: MutableList<Int> = mutableListOf(1,2,5,11,32,87,141)
-    // Public key from `ti = a*si mod p`
-    lateinit var publicKey: MutableList<Int>
-    var a: Int = 200 // a
-    var p: Int = 307 // prime number
-    var euclidean = 241
+    // Private Key
+    private var privateKey: MutableList<Int> = mutableListOf(1,2,5,11,32,87,141)
+    private var a: Int = 200 // a
+    private var p: Int = 307 // prime number
+    // Public key
+    private var publicKey: MutableList<Int> = mutableListOf()
+    private var aInverse = modInverse(a,p)
 
     init{ generateKey() }
 
-    private fun generateKey() {
-        publicKey = mutableListOf()
-
-        val range = privateKey.size -1
-        // ti = a*s(i) mod p
-        for (i in 0..range) publicKey.add(privateKey[i].times(a).rem(p))
-    }
-
+    @SuppressLint("DefaultLocale")
     fun encrypt(plaintText: String): String{
         val ptCharArray = plaintText.toUpperCase().toCharArray()
         val bitArray = mutableListOf<String>()
         val resultArray = mutableListOf<String>()
-        for(c in ptCharArray){
-            bitArray.add(Integer.toString(c.toInt(),2))
-        }
-        for(letter in bitArray){
+        // Convert char to binary
+        for(c in ptCharArray) bitArray.add(c.toInt().toString(2))
+
+        for(bitLetter in bitArray){
             var j = 0
             var numberValue = 0
-            for(item in letter){
-                if(item == '1'){
-                    numberValue+=publicKey[j]
-                }
+            for(item in bitLetter){
+                if(item == '1') numberValue+=publicKey[j]
                 j++
             }
             resultArray.add(numberValue.toString())
@@ -42,12 +33,13 @@ class Hellman {
         return resultArray.joinToString("-")
     }
 
+    @SuppressLint("DefaultLocale")
     fun decrypt(cipherText: String): String{
-        // z = euclidean*y mod p
         val decryptedArray = mutableListOf<String>()
-        val arrayofCipher = cipherText.split("-")
-        for(letter in arrayofCipher){
-            val result = euclidean.times(letter.toInt()).rem(p)
+        val arrayofCT = cipherText.split("-")
+        for(letter in arrayofCT){
+            // z = a(-1)*y mod p
+            val result = aInverse.times(letter.toInt()).rem(p)
             var bitResult = ""
             var pt = 0
             for(i in 6 downTo 0){
@@ -61,8 +53,7 @@ class Hellman {
             }
             decryptedArray.add(binaryToString(bitResult.reversed()))
         }
-        val decryptedString = decryptedArray.joinToString("")
-        return decryptedString.toLowerCase()
+        return decryptedArray.joinToString("").toLowerCase()
     }
 
     private fun binaryToString(binary: String): String{
@@ -77,5 +68,16 @@ class Hellman {
         }
 
         return String(chars)
+    }
+
+    private fun generateKey() {
+        // ti = a*s(i) mod p
+        for (i in 0 until privateKey.size) publicKey.add(privateKey[i].times(a).rem(p))
+    }
+
+    private fun modInverse(a: Int, p: Int): Int {
+        val a = a%p
+        for (x in 1 until p) if ((a*x) % p == 1) return x
+        return 1
     }
 }
