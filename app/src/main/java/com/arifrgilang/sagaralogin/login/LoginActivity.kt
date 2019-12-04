@@ -16,7 +16,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        mPresenter = LoginPresenter(this)
+        mPresenter = LoginPresenter(this, this)
         choose_login_button.setOnClickListener {
             mPresenter.checkLogin(username.text.toString(), password.text.toString())
         }

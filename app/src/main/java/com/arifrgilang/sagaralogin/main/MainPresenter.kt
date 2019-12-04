@@ -3,6 +3,7 @@ package com.arifrgilang.sagaralogin.main
 import android.content.Context
 import com.arifrgilang.sagaralogin.R
 import com.arifrgilang.sagaralogin.model.Employee
+import com.arifrgilang.sagaralogin.util.Util
 
 class MainPresenter(private val ctx: Context, private val mView: MainContract.View): MainContract.Presenter {
     private var listNama: MutableList<String> = mutableListOf()
@@ -22,10 +23,24 @@ class MainPresenter(private val ctx: Context, private val mView: MainContract.Vi
     }
 
     override fun addSaldo() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+        var saldo = Util.localDb(ctx).getInt(Util.MONEY, 0)
+        if(saldo+500000<=10000000){
+            saldo+=500000
+            Util.writeIntToDB(Util.localDb(ctx), Util.MONEY, saldo)
+            mView.setSaldoView(saldo)
+        } else
+            mView.showToast("Saldo sudah maksimal!")
+        }
 
     override fun minSaldo() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        var saldo = Util.localDb(ctx).getInt(Util.MONEY, 0)
+        if(saldo-500000>=0){
+            saldo-=500000
+            Util.writeIntToDB(Util.localDb(ctx), Util.MONEY, saldo)
+            mView.setSaldoView(saldo)
+        } else
+            mView.showToast("Saldo tidak bisa dikurangi lagi!")
     }
 }
+
+

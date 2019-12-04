@@ -1,10 +1,12 @@
 package com.arifrgilang.sagaralogin.login
 
+import android.content.Context
 import android.util.Log
 import com.arifrgilang.sagaralogin.util.Hellman
+import com.arifrgilang.sagaralogin.util.Util
 import com.google.firebase.database.*
 
-class LoginPresenter(var mView: LoginContract.View): LoginContract.Presenter{
+class LoginPresenter(var ctx: Context, var mView: LoginContract.View): LoginContract.Presenter{
     private val db = FirebaseDatabase.getInstance()
     private lateinit var dbRef : DatabaseReference
 
@@ -38,6 +40,7 @@ class LoginPresenter(var mView: LoginContract.View): LoginContract.Presenter{
                 val decryptedPw = hellman.decrypt(value!!)
 
                 if(decryptedPw == pw){
+                    Util.writeStringToDB(Util.localDb(ctx), Util.USERID, id)
                     mView.navigateToMain()
                 } else{
                     mView.showToast("Password Salah")

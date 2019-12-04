@@ -32,6 +32,7 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/down_button"
                 android:layout_margin="4dp"
                 android:tint="@color/colorPrimary"
                 android:src="@android:drawable/arrow_down_float"
@@ -54,15 +55,17 @@
                     android:textAlignment="center"
                     android:textSize="20sp"/>
                 <TextView
+                    android:id="@+id/saldo_text"
                     android:layout_marginBottom="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="10000"
+                    android:text="0"
                     android:textColor="@color/colorPrimaryDark"
                     android:textAlignment="center"
                     android:textSize="20sp"/>
             </LinearLayout>
             <ImageButton
+                android:id="@+id/up_button"
                 android:tint="@color/colorPrimary"
                 android:layout_margin="4dp"
                 android:layout_gravity="center_vertical"
