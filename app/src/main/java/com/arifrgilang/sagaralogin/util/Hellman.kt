@@ -1,4 +1,4 @@
-package com.arifrgilang.sagaralogin.cryptosystem
+package com.arifrgilang.sagaralogin.util
 import java.nio.charset.Charset
 
 class Hellman {

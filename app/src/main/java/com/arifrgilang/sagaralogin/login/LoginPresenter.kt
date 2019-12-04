@@ -1,7 +1,7 @@
 package com.arifrgilang.sagaralogin.login
 
 import android.util.Log
-import com.arifrgilang.sagaralogin.cryptosystem.Hellman
+import com.arifrgilang.sagaralogin.util.Hellman
 import com.google.firebase.database.*
 
 class LoginPresenter(var mView: LoginContract.View): LoginContract.Presenter{

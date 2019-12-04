@@ -29,27 +29,33 @@
     <string name="bekasi">Bekasi</string>
     <string name="pilih">Pilih</string>
 
-    <string-array name="jabar_list">
-        <item>(pilih kota)</item>
-        <item>Jakarta</item>
-        <item>Bogor</item>
-        <item>Depok</item>
-        <item>Tangerang</item>
-        <item>Bekasi</item>
+    <string-array name="list_nama">
+        <item>Firmansyah Yanuar</item>
+        <item>M Achun Armando</item>
+        <item>Arif R Gilang</item>
+        <item>Marcell Antonius</item>
+        <item>Cryssa Piter</item>
+        <item>Agnes Hata</item>
+        <item>Faradilla Azranur</item>
     </string-array>
 
-    <string-array name="jateng_list">
-        <item>(pilih kota)</item>
-        <item>Pekalongan</item>
-        <item>Batang</item>
-        <item>Pemalang</item>
-        <item>Yogyakarta</item>
-        <item>Purwokerto</item>
+    <string-array name="list_jabatan">
+        <item>Koordinator AlProg</item>
+        <item>Koordinator PemWeb</item>
+        <item>Koordinator OOP</item>
+        <item>Koordinator MetNum</item>
+        <item>Member Asisten Praktikum</item>
+        <item>Koordinator Alprog</item>
+        <item>Koordinator SDB II</item>
     </string-array>
 
-    <string-array name="provinsi_list">
-        <item>(pilih provinsi)</item>
-        <item>Jawa Barat</item>
-        <item>Jawa Tengah</item>
+    <string-array name="list_rekening">
+        <item>123321123321</item>
+        <item>456654456654</item>
+        <item>789987789987</item>
+        <item>890098890098</item>
+        <item>180081180081</item>
+        <item>149941149941</item>
+        <item>348843348843</item>
     </string-array>
 </resources>

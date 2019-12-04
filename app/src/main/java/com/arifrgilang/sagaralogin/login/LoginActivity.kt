@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.arifrgilang.sagaralogin.MainActivity
+import com.arifrgilang.sagaralogin.main.MainActivity
 import com.arifrgilang.sagaralogin.R
 import kotlinx.android.synthetic.main.activity_login.*
 
