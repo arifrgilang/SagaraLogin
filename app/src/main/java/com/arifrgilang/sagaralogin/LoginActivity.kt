@@ -45,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
         // Masukkan logic untuk Enkripsi PW
         val hellman = Hellman()
         val encryptedId = hellman.encrypt(id)
-
+        val decryptedId = hellman.decrypt(encryptedId)
 //        dbRef = db.reference.child("account").child(id)
 //
 //        dbRef.addValueEventListener(object: ValueEventListener{

@@ -1,8 +1,5 @@
 package com.arifrgilang.sagaralogin.cryptosystem
-
-import android.util.Log
 import java.nio.charset.Charset
-
 
 class Hellman {
     private val UTF8: Charset = Charset.forName("UTF-8")
@@ -42,9 +39,43 @@ class Hellman {
             }
             resultArray.add(numberValue.toString())
         }
-        Log.d("Encrypted Result", resultArray.reversed().joinToString("-"))
-//        return result.toString()
-        return resultArray.reversed().joinToString("-")
+        return resultArray.joinToString("-")
     }
 
+    fun decrypt(cipherText: String): String{
+        // z = euclidean*y mod p
+        val decryptedArray = mutableListOf<String>()
+        val arrayofCipher = cipherText.split("-")
+        for(letter in arrayofCipher){
+            val result = euclidean.times(letter.toInt()).rem(p)
+            var bitResult = ""
+            var pt = 0
+            for(i in 6 downTo 0){
+                val temp = privateKey[i]
+                if((pt+temp)<=result){
+                    pt+=temp
+                    bitResult+="1"
+                } else{
+                    bitResult+="0"
+                }
+            }
+            decryptedArray.add(binaryToString(bitResult.reversed()))
+        }
+        val decryptedString = decryptedArray.joinToString("")
+        return decryptedString.toLowerCase()
+    }
+
+    private fun binaryToString(binary: String): String{
+        val chars = CharArray(binary.length / 7)
+        var i = 0
+
+        while (i < binary.length) {
+            val str = binary.substring(i, i + 7)
+            val nb = Integer.parseInt(str, 2)
+            chars[i / 7] = nb.toChar()
+            i += 7
+        }
+
+        return String(chars)
+    }
 }
