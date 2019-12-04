@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mPresenter = MainPresenter(this, this)
-        mAdapter = EmployeeRvAdapter()
+        mAdapter = EmployeeRvAdapter(this)
 
         employee_rv.layoutManager = LinearLayoutManager(this)
         employee_rv.adapter = mAdapter
