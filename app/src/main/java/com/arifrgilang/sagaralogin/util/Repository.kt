@@ -38,9 +38,9 @@ class Repository {
             db.child("history")
                 .push()
                 .setValue(
-                    History(nama, jabatan,nominal,
-                        hellman.encrypt(Util.getLocalDate()),
-                        hellman.encrypt(Util.getLocalTime()))
+                    History(nama, jabatan, nominal,
+                        hellman.encrypt(hellman.convertEnNumber(Util.getLocalDate())),
+                        hellman.encrypt(hellman.convertEnNumber(Util.getLocalTime())))
                 )
         }
     }

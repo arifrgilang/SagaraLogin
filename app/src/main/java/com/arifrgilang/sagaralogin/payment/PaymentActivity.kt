@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.arifrgilang.sagaralogin.R
-import com.arifrgilang.sagaralogin.util.PwFragment
 import kotlinx.android.synthetic.main.activity_payment.*
 
 class PaymentActivity : AppCompatActivity(), PaymentContract.View {

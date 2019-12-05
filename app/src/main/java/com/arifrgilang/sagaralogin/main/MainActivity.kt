@@ -1,12 +1,13 @@
 package com.arifrgilang.sagaralogin.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arifrgilang.sagaralogin.R
+import com.arifrgilang.sagaralogin.history.HistoryActivity
 import com.arifrgilang.sagaralogin.model.Employee
-import com.arifrgilang.sagaralogin.util.EmployeeRvAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainContract.View {
@@ -24,6 +25,9 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
         down_button.setOnClickListener{ mPresenter.minSaldo() }
         up_button.setOnClickListener { mPresenter.addSaldo() }
+        history_button.setOnClickListener {
+            startActivity(Intent(this, HistoryActivity::class.java))
+        }
     }
 
     private fun initRv(){
@@ -35,10 +39,6 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun setListView(list: List<Employee>) = mAdapter.setList(list)
-
-    override fun navigateToSend() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
     override fun showToast(text: String) =
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show()

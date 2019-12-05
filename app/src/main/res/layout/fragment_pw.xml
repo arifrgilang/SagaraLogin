@@ -10,7 +10,7 @@
     app:behavior_hideable="true"
     app:behavior_peekHeight="56dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-    tools:context=".util.PwFragment">
+    tools:context=".payment.PwFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -1,6 +1,7 @@
 package com.arifrgilang.sagaralogin.util
 
 import android.annotation.SuppressLint
+import android.util.Log
 
 class Hellman {
     // Private Key
@@ -54,6 +55,68 @@ class Hellman {
             decryptedArray.add(binaryToString(bitResult.reversed()))
         }
         return decryptedArray.joinToString("").toLowerCase()
+    }
+
+    fun convertEnNumber(numbers: String): String{
+        val numberArray = numbers.toCharArray()
+        val charArray = mutableListOf('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J')
+        val result = mutableListOf<Char>()
+        for (c in numberArray){
+            when(c){
+                '0' -> result.add(charArray[0])
+                '1' -> result.add(charArray[1])
+                '2' -> result.add(charArray[2])
+                '3' -> result.add(charArray[3])
+                '4' -> result.add(charArray[4])
+                '5' -> result.add(charArray[5])
+                '6' -> result.add(charArray[6])
+                '7' -> result.add(charArray[7])
+                '8' -> result.add(charArray[8])
+                '9' -> result.add(charArray[9])
+                ' ' -> result.add(' ')
+            }
+        }
+        Log.d("tostr", result.joinToString(""))
+        return result.joinToString("")
+    }
+
+    fun convertDeNumber(chars: String): String{
+        val charArray = chars.toCharArray()
+        val numberArray = mutableListOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
+        val result = mutableListOf<Char>()
+        for (c in charArray){
+            when(c){
+                'a' -> result.add(numberArray[0])
+                'b' -> result.add(numberArray[1])
+                'c' -> result.add(numberArray[2])
+                'd' -> result.add(numberArray[3])
+                'e' -> result.add(numberArray[4])
+                'f' -> result.add(numberArray[5])
+                'g' -> result.add(numberArray[6])
+                'h' -> result.add(numberArray[7])
+                'i' -> result.add(numberArray[8])
+                'j' -> result.add(numberArray[9])
+                ' ' -> result.add(' ')
+            }
+        }
+        Log.d("toNumber", result.joinToString(""))
+        return result.joinToString("")
+    }
+
+    @SuppressLint("DefaultLocale")
+    fun decryptWithSpace(text: String): String {
+        val arr = text.split("@")
+        val output = mutableListOf<String>()
+        for (word in arr) output.add(word.capitalize())
+        return output.joinToString(" ")
+    }
+
+    @SuppressLint("DefaultLocale")
+    fun decryptNumWithSpace(text: String): String {
+        val arr = text.split("@")
+        val output = mutableListOf<String>()
+        for (word in arr) output.add(word)
+        return output.joinToString(" ")
     }
 
     private fun binaryToString(binary: String): String{

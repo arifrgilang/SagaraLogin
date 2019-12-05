@@ -14,6 +14,11 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".history.HistoryActivity"
+            android:theme="@style/AppTheme.Splash">
+
+        </activity>
+        <activity
             android:name=".payment.PaymentActivity"
             android:theme="@style/AppTheme.Splash">
 
@@ -21,9 +26,7 @@
         <activity
             android:name=".login.LoginActivity"
             android:theme="@style/AppTheme.Splash"
-            android:windowSoftInputMode="adjustResize">
-
-        </activity>
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.Splash">
@@ -35,9 +38,7 @@
         </activity>
         <activity
             android:name=".main.MainActivity"
-            android:theme="@style/AppTheme.Splash">
-
-        </activity>
+            android:theme="@style/AppTheme.Splash"></activity>
     </application>
 
 </manifest>

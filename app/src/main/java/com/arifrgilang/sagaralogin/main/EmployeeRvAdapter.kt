@@ -1,4 +1,4 @@
-package com.arifrgilang.sagaralogin.util
+package com.arifrgilang.sagaralogin.main
 
 import android.content.Context
 import android.content.Intent
@@ -23,7 +23,9 @@ class EmployeeRvAdapter(var ctx: Context): RecyclerView.Adapter<EmployeeRvAdapte
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmpViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.employee_viewholder, parent, false)
-        return EmpViewHolder(view)
+        return EmpViewHolder(
+            view
+        )
     }
 
     override fun getItemCount(): Int = list.size
