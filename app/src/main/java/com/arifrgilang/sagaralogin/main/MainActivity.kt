@@ -43,5 +43,9 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun showToast(text: String) =
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
 
+    override fun onResume() {
+        super.onResume()
+        mPresenter.retrieveSaldo()
+    }
     override fun setSaldoView(saldo: Int) { saldo_text.text = saldo.toString() }
 }

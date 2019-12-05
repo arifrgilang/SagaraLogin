@@ -25,9 +25,11 @@ class PwFragment : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        nama = arguments!!.getString("nama")!!
-        jabatan = arguments!!.getString("jabatan")!!
-        nominal = arguments!!.getString("nominal")!!
+        val hellman = Hellman()
+
+        nama = hellman.encrypt(arguments!!.getString("nama")!!)
+        jabatan = hellman.encrypt(arguments!!.getString("jabatan")!!)
+        nominal = hellman.encrypt(arguments!!.getString("nominal")!!)
 
         return inflater.inflate(R.layout.fragment_pw, container, false)
     }
@@ -52,6 +54,12 @@ class PwFragment : BottomSheetDialogFragment() {
                     if(decryptedPw == pw){
                         // Write history to online DB
                         Repository.submitHistory(nama, jabatan, nominal)
+                        // Minus saldo from offline DB
+                        val hellman = Hellman()
+                        var saldo = Repository.localDb(ctx).getInt(Repository.MONEY,0)
+                        saldo-=arguments!!.getString("nominal")!!.toInt()
+                        Repository.writeIntToDB(Repository.localDb(ctx), Repository.MONEY, saldo)
+                        // Finish
                         Toast.makeText(ctx, "Transfer Berhasil", Toast.LENGTH_SHORT).show()
                         activity!!.finish()
                     } else{

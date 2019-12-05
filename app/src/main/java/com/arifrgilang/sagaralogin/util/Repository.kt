@@ -34,10 +34,13 @@ class Repository {
 
         fun submitHistory(nama: String, jabatan: String, nominal: String){
             val db = onlineDb()
+            val hellman = Hellman()
             db.child("history")
                 .push()
                 .setValue(
-                    History(nama, jabatan,nominal, Util.getLocalDate(), Util.getLocalTime())
+                    History(nama, jabatan,nominal,
+                        hellman.encrypt(Util.getLocalDate()),
+                        hellman.encrypt(Util.getLocalTime()))
                 )
         }
     }
