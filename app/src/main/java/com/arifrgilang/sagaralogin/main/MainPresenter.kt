@@ -3,7 +3,7 @@ package com.arifrgilang.sagaralogin.main
 import android.content.Context
 import com.arifrgilang.sagaralogin.R
 import com.arifrgilang.sagaralogin.model.Employee
-import com.arifrgilang.sagaralogin.util.Util
+import com.arifrgilang.sagaralogin.util.Repository
 
 class MainPresenter(private val ctx: Context, private val mView: MainContract.View): MainContract.Presenter {
     private var listNama: MutableList<String> = mutableListOf()
@@ -22,21 +22,25 @@ class MainPresenter(private val ctx: Context, private val mView: MainContract.Vi
         mView.setListView(listEmployee)
     }
 
+    override fun retrieveSaldo() {
+        mView.setSaldoView(Repository.localDb(ctx).getInt(Repository.MONEY, 0))
+    }
+
     override fun addSaldo() {
-        var saldo = Util.localDb(ctx).getInt(Util.MONEY, 0)
+        var saldo = Repository.localDb(ctx).getInt(Repository.MONEY, 0)
         if(saldo+500000<=10000000){
             saldo+=500000
-            Util.writeIntToDB(Util.localDb(ctx), Util.MONEY, saldo)
+            Repository.writeIntToDB(Repository.localDb(ctx), Repository.MONEY, saldo)
             mView.setSaldoView(saldo)
         } else
             mView.showToast("Saldo sudah maksimal!")
         }
 
     override fun minSaldo() {
-        var saldo = Util.localDb(ctx).getInt(Util.MONEY, 0)
+        var saldo = Repository.localDb(ctx).getInt(Repository.MONEY, 0)
         if(saldo-500000>=0){
             saldo-=500000
-            Util.writeIntToDB(Util.localDb(ctx), Util.MONEY, saldo)
+            Repository.writeIntToDB(Repository.localDb(ctx), Repository.MONEY, saldo)
             mView.setSaldoView(saldo)
         } else
             mView.showToast("Saldo tidak bisa dikurangi lagi!")

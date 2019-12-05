@@ -10,6 +10,7 @@ interface MainContract {
         fun setSaldoView(saldo: Int)
     }
     interface Presenter{
+        fun retrieveSaldo()
         fun getListEmployee()
         fun addSaldo()
         fun minSaldo()

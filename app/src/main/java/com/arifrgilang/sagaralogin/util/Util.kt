@@ -1,28 +1,20 @@
 package com.arifrgilang.sagaralogin.util
 
-import android.content.Context
-import android.content.SharedPreferences
+import java.text.SimpleDateFormat
+import java.util.*
 
 class Util {
     companion object{
-        private var PRIVATE_MODE = 0
-        private var PREF_NAME = "sagara"
-        var USERID = "userid"
-        var MONEY = "money"
-
-        fun localDb(ctx: Context): SharedPreferences =
-            ctx.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
-
-        fun writeStringToDB(db: SharedPreferences, key: String, value: String){
-            val editor = db.edit()
-            editor.putString(key, value)
-            editor.apply()
+        fun getLocalDate() : String{
+            val time = Calendar.getInstance().time
+            val format = SimpleDateFormat("MM-dd-yyyy", Locale.getDefault())
+            return format.format(time)
         }
 
-        fun writeIntToDB(db: SharedPreferences, key: String, value: Int){
-            val editor = db.edit()
-            editor.putInt(key, value)
-            editor.apply()
+        fun getLocalTime(): String{
+            val time = Calendar.getInstance().time
+            val format = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
+            return format.format(time)
         }
     }
 }

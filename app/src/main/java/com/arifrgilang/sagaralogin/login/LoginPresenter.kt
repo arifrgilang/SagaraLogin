@@ -3,12 +3,10 @@ package com.arifrgilang.sagaralogin.login
 import android.content.Context
 import android.util.Log
 import com.arifrgilang.sagaralogin.util.Hellman
-import com.arifrgilang.sagaralogin.util.Util
+import com.arifrgilang.sagaralogin.util.Repository
 import com.google.firebase.database.*
 
 class LoginPresenter(var ctx: Context, var mView: LoginContract.View): LoginContract.Presenter{
-    private val db = FirebaseDatabase.getInstance()
-    private lateinit var dbRef : DatabaseReference
 
     override fun checkLogin(id: String, pw: String) {
         if(id.isEmpty() || pw.isEmpty()){
@@ -32,15 +30,16 @@ class LoginPresenter(var ctx: Context, var mView: LoginContract.View): LoginCont
         val encryptedId = hellman.encrypt(id)
         Log.d("encypted", encryptedId)
 
-        dbRef = db.reference.child("account").child(encryptedId)
+        val dbOnline = Repository.onlineDb()
+            .child("account").child(encryptedId)
 
-        dbRef.addValueEventListener(object: ValueEventListener {
+        dbOnline.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
                 val value = p0.getValue(String::class.java)
                 val decryptedPw = hellman.decrypt(value!!)
 
                 if(decryptedPw == pw){
-                    Util.writeStringToDB(Util.localDb(ctx), Util.USERID, id)
+                    Repository.writeStringToDB(Repository.localDb(ctx), Repository.USERID, id)
                     mView.navigateToMain()
                 } else{
                     mView.showToast("Password Salah")

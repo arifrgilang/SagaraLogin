@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mPresenter = MainPresenter(this, this)
+        mPresenter.retrieveSaldo()
+
         initRv()
 
         down_button.setOnClickListener{ mPresenter.minSaldo() }
